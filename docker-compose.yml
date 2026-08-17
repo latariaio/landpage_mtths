@@ -1,0 +1,22 @@
+services:
+  landpage:
+    build:
+     context: .
+     dockerfile: Dockerfile 
+    container_name: landpage_mtths
+    ports:
+      - "3000:3000"
+      - "3333:3333"
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USERPOLLING=true
+    command: ["npm", "run", "dev","--", "--host", "0.0.0.0"]
+    networks:
+      - mtths-network
+
+networks:
+  mtths-network:
+    driver: bridge
