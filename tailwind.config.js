@@ -5,13 +5,14 @@ export default {
     extend: {
       colors: {
         ink: {
-          950: '#0A0A0A',
-          900: '#0E0E0E',
-          850: '#121212',
-          800: '#161616',
-          700: '#1C1C1C',
-          600: '#242424',
-          500: '#2E2E2E',
+          950: '#080808',
+          900: '#0C0C0C',
+          850: '#101010',
+          800: '#141414',
+          750: '#181818',
+          700: '#1E1E1E',
+          600: '#262626',
+          500: '#303030',
         },
         accent: {
           DEFAULT: '#3FA796',
@@ -24,29 +25,24 @@ export default {
         mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
       letterSpacing: {
-        tightest: '-0.04em',
+        tightest: '-0.045em',
       },
       maxWidth: {
-        content: '1180px',
+        content: '1200px',
       },
       keyframes: {
         'fade-up': {
-          '0%': { opacity: '0', transform: 'translateY(16px)' },
+          '0%': { opacity: '0', transform: 'translateY(18px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
         'fade-in': {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
         },
-        'pulse-dot': {
-          '0%, 100%': { opacity: '1' },
-          '50%': { opacity: '0.35' },
-        },
       },
       animation: {
-        'fade-up': 'fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards',
-        'fade-in': 'fade-in 0.7s ease forwards',
-        'pulse-dot': 'pulse-dot 2.4s ease-in-out infinite',
+        'fade-up': 'fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards',
+        'fade-in': 'fade-in 0.8s ease forwards',
       },
     },
   },

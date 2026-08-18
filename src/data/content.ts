@@ -1,5 +1,7 @@
 import type { LucideIcon } from 'lucide-react';
-import { Server, Boxes, Workflow, Terminal } from 'lucide-react';
+import { Hammer, GraduationCap, Compass,   Rocket,  Layers, Cpu, Workflow, GitBranch, Terminal } from 'lucide-react';
+
+export type ProjectStatus = 'Building' | 'MVP' | 'Exploring' | 'Shipped';
 
 export type Project = {
   id: string;
@@ -8,72 +10,85 @@ export type Project = {
   description: string;
   problem: string;
   technologies: string[];
-  status: 'Em desenvolvimento' | 'MVP' | 'Concluído';
+  status: ProjectStatus;
   links: { label: string; href: string }[];
 };
 
+export type LabItem = {
+  id: string;
+  title: string;
+  description: string;
+  status: 'Idea' | 'Experiment' | 'Building' | 'Paused' | 'Shipped';
+  tag: string;
+};
+
+export type SkillLevel = 'Primary' | 'Working with' | 'Exploring';
+
 export type SkillGroup = {
   title: string;
-  items: { name: string; learning?: boolean }[];
+  items: { name: string; level: SkillLevel }[];
 };
 
-export type Service = {
+export type Principle = {
   title: string;
   description: string;
 };
 
-export type ProcessStep = {
-  step: string;
+export type Venture = {
   title: string;
   description: string;
+  status: 'IDEA' | 'VALIDATING' | 'BUILDING' | 'LIVE';
+  category: string;
 };
 
-export type Highlight = {
+export type Opportunity = {
+  title: string;
+  description: string;
+  cta: string;
+  href: string;
+};
+
+export type Pillar = {
   icon: LucideIcon;
-  title: string;
+  label: string;
   description: string;
 };
 
 export const NAV_LINKS = [
-  { label: 'Início', href: '#inicio' },
-  { label: 'Projetos', href: '#projetos' },
-  { label: 'Habilidades', href: '#habilidades' },
   { label: 'Sobre', href: '#sobre' },
+  { label: 'Projetos', href: '#projetos' },
+  { label: 'Stack', href: '#stack' },
+  { label: 'Lab', href: '#lab' },
   { label: 'Contato', href: '#contato' },
 ] as const;
 
 export const SOCIAL_LINKS = {
-  github: 'https://github.com/',
-  linkedin: 'https://linkedin.com/in/',
-  email: 'mailto:contato@matheus.dev',
-  ninetyfreelas: 'https://www.99freelas.com.br/',
+  github: 'https://github.com/latariaio',
+  linkedin: 'https://linkedin.com/in/mtths-monteiro',
+  email: 'mailto:matheus.stack.20@gmail.com',
 } as const;
 
 export const CONTACT_INFO = {
-  email: 'contato@matheus.dev',
-  github: 'github.com/[seu-github]',
-  linkedin: 'linkedin.com/in/[seu-linkedin]',
-  ninetyfreelas: '99freelas.com.br/[seu-perfil]',
+  email: 'matheus.stack.20@gmail.com',
+  github: 'github.com/latariaio',
+  linkedin: 'linkedin.com/in/mtths-monteiro',
 } as const;
 
-export const HIGHLIGHTS: Highlight[] = [
+export const PILLARS: Pillar[] = [
   {
-    icon: Terminal,
-    title: 'Sistemas personalizados',
-    description:
-      'Aplicações desenvolvidas de acordo com o processo e as necessidades específicas de cada negócio.',
+    icon: Hammer,
+    label: 'BUILD',
+    description: 'Construo sistemas, APIs, automações e aplicações.',
   },
   {
-    icon: Server,
-    title: 'APIs e Backend',
-    description:
-      'APIs bem estruturadas para conectar aplicações, automatizar processos e centralizar regras de negócio.',
+    icon: GraduationCap,
+    label: 'LEARN',
+    description: 'Estudo novas tecnologias e aprofundo fundamentos de engenharia de software.',
   },
   {
-    icon: Workflow,
-    title: 'Automação',
-    description:
-      'Transformação de tarefas manuais e repetitivas em processos digitais mais rápidos e confiáveis.',
+    icon: Compass,
+    label: 'EXPLORE',
+    description: 'Experimento ideias e transformo algumas delas em produtos e projetos próprios.',
   },
 ];
 
@@ -83,10 +98,10 @@ export const PROJECTS: Project[] = [
     index: '01',
     name: 'Workstation Agent',
     description:
-      'Ferramenta CLI desenvolvida em Go para automatizar tarefas de gerenciamento e backup de uma workstation Linux.',
+      'Uma ferramenta CLI em Go para automatizar tarefas de gerenciamento de uma workstation Linux.',
     problem: 'Automatizar rotinas manuais de manutenção e backup em ambientes Linux.',
     technologies: ['Go', 'Linux', 'CLI', 'Docker'],
-    status: 'Em desenvolvimento',
+    status: 'Building',
     links: [{ label: 'GitHub', href: 'https://github.com/' }],
   },
   {
@@ -94,8 +109,8 @@ export const PROJECTS: Project[] = [
     index: '02',
     name: 'Sistema de Ordem de Serviço',
     description:
-      'Sistema web para gerenciamento de clientes, ordens de serviço, serviços e itens.',
-    problem: 'Organizar e centralizar o fluxo de ordens de serviço de um negócio.',
+      'Sistema para gerenciamento de clientes, serviços e ordens de serviço, pensado para pequenos negócios.',
+    problem: 'Organizar e centralizar o fluxo de ordens de serviço de um pequeno negócio.',
     technologies: ['Go', 'REST API', 'PostgreSQL'],
     status: 'MVP',
     links: [{ label: 'GitHub', href: 'https://github.com/' }],
@@ -105,38 +120,56 @@ export const PROJECTS: Project[] = [
     index: '03',
     name: 'API Gateway',
     description:
-      'Projeto experimental de infraestrutura para centralizar autenticação, roteamento e comunicação entre diferentes serviços.',
+      'Exploração de uma arquitetura para centralizar autenticação, roteamento e comunicação entre serviços.',
     problem: 'Centralizar autenticação e roteamento entre múltiplos serviços.',
-    technologies: ['Go', 'REST', 'Docker'],
-    status: 'Em desenvolvimento',
+    technologies: ['Go', 'Docker', 'REST'],
+    status: 'Exploring',
     links: [{ label: 'GitHub', href: 'https://github.com/' }],
   },
 ];
 
-export const PROCESS_STEPS: ProcessStep[] = [
+export const LAB_ITEMS: LabItem[] = [
   {
-    step: '01',
-    title: 'Entendimento',
-    description:
-      'Entendo o problema, o processo atual e o resultado esperado.',
+    id: 'lab-1',
+    title: 'Estudo de arquitetura de microsserviços',
+    description: 'Explorando padrões de comunicação e isolamento entre serviços.',
+    status: 'Experiment',
+    tag: 'Arquitetura',
   },
   {
-    step: '02',
-    title: 'Planejamento',
-    description:
-      'Defino funcionalidades, arquitetura e prioridades para criar uma solução objetiva.',
+    id: 'lab-2',
+    title: 'Ferramenta CLI de produtividade',
+    description: 'Pequeno utilitário de linha de comando para automatizar tarefas repetitivas.',
+    status: 'Building',
+    tag: 'CLI',
   },
   {
-    step: '03',
-    title: 'Desenvolvimento',
-    description:
-      'Construo o sistema de forma incremental, mantendo código organizado e fácil de evoluir.',
+    id: 'lab-3',
+    title: 'Idea de SaaS para gestão de pequenos negócios',
+    description: 'Conceito inicial de um produto para gestão simples de ordens de serviço.',
+    status: 'Idea',
+    tag: 'SaaS',
   },
   {
-    step: '04',
-    title: 'Entrega',
-    description:
-      'Faço os ajustes finais, documentação e preparo o projeto para utilização.',
+    id: 'lab-4',
+    title: 'Automação de infraestrutura com Docker',
+    description: 'Scripts e compose files para provisionar ambientes de desenvolvimento.',
+    status: 'Shipped',
+    tag: 'Infra',
+  },
+  {
+    id: 'lab-5',
+    title: 'API experimental de webhooks',
+    description: 'Estudo de roteamento, filas e processamento assíncrono.',
+    status: 'Paused',
+    tag: 'API',
+  },
+  {
+    id: 'lab-6',
+    title: 'Estudos de Domain-Driven Design',
+    description: 'Aprofundando modelagem de domínio e separação de contextos.',
+    status: 'Experiment',
+    tag: 'Engineering',
   },
 ];
 
@@ -144,84 +177,153 @@ export const SKILLS: SkillGroup[] = [
   {
     title: 'Backend',
     items: [
-      { name: 'Go' },
-      { name: 'REST APIs' },
-      { name: 'PostgreSQL' },
-      { name: 'SQL' },
-      { name: 'Gin' },
-      { name: 'Arquitetura de software' },
-    ],
-  },
-  {
-    title: 'DevOps',
-    items: [
-      { name: 'Docker' },
-      { name: 'Linux' },
-      { name: 'Git' },
-      { name: 'GitHub Actions', learning: true },
-      { name: 'CI/CD', learning: true },
-    ],
-  },
-  {
-    title: 'Desenvolvimento',
-    items: [
-      { name: 'Git' },
-      { name: 'APIs' },
-      { name: 'Clean Architecture' },
-      { name: 'SOLID' },
-      { name: 'Design de sistemas' },
+      { name: 'Go', level: 'Primary' },
+      { name: 'REST API', level: 'Primary' },
+      { name: 'Gin', level: 'Working with' },
+      { name: 'PostgreSQL', level: 'Working with' },
+      { name: 'SQL', level: 'Working with' },
     ],
   },
   {
     title: 'Frontend',
     items: [
-      { name: 'HTML' },
-      { name: 'CSS' },
-      { name: 'JavaScript' },
-      { name: 'React', learning: true },
+      { name: 'React', level: 'Exploring' },
+      { name: 'TypeScript', level: 'Exploring' },
+      { name: 'Vite', level: 'Exploring' },
+      { name: 'HTML', level: 'Working with' },
+      { name: 'CSS', level: 'Working with' },
+    ],
+  },
+  {
+    title: 'DevOps',
+    items: [
+      { name: 'Docker', level: 'Working with' },
+      { name: 'Linux', level: 'Working with' },
+      { name: 'Git', level: 'Primary' },
+      { name: 'GitHub Actions', level: 'Exploring' },
+      { name: 'CI/CD', level: 'Exploring' },
+    ],
+  },
+  {
+    title: 'Engineering',
+    items: [
+      { name: 'Clean Architecture', level: 'Working with' },
+      { name: 'SOLID', level: 'Working with' },
+      { name: 'Domain Modeling', level: 'Exploring' },
+      { name: 'API Design', level: 'Working with' },
     ],
   },
 ];
 
-export const SERVICES: Service[] = [
+export const PRINCIPLES: Principle[] = [
   {
-    title: 'Desenvolvimento de sistemas',
+    title: 'Simplicidade',
     description:
-      'Sistemas web personalizados para processos internos e operações de empresas.',
+      'Prefiro uma solução simples que funcione bem a uma arquitetura complexa sem necessidade.',
   },
   {
-    title: 'APIs e Backend',
+    title: 'Manutenibilidade',
     description:
-      'Desenvolvimento de APIs REST e serviços backend para aplicações web e mobile.',
+      'Código precisa continuar compreensível depois que o projeto crescer.',
   },
   {
-    title: 'MVPs',
+    title: 'Evolução',
     description:
-      'Construção de MVPs para validar ideias de produtos digitais rapidamente.',
+      'Software deve ser construído pensando no próximo passo, sem tentar prever todos eles.',
   },
   {
-    title: 'Automação de processos',
+    title: 'Produto',
     description:
-      'Soluções para reduzir tarefas manuais e automatizar processos repetitivos.',
-  },
-  {
-    title: 'Integrações',
-    description:
-      'Integração entre sistemas, APIs e serviços externos.',
+      'Uma boa implementação resolve um problema real.',
   },
 ];
 
-export const VALUES = [
-  'Simplicidade',
-  'Código organizado',
-  'Manutenibilidade',
-  'Performance',
-  'Segurança',
-  'Evolução contínua',
+export const FOCUS_LIST = [
+  'Go',
+  'Backend',
+  'APIs',
+  'Arquitetura de software',
+  'Docker',
+  'Linux',
+  'Produtos digitais',
+  'Empreendedorismo em tecnologia',
 ];
 
-export const STATUS_STYLES: Record<Project['status'], string> = {
-  'Em desenvolvimento': 'text-amber-400/90 border-amber-400/30 bg-amber-400/5',
+export const VENTURES: Venture[] = [
+  {
+    title: '[Produto SaaS placeholder]',
+    description: 'Descrição do produto que está sendo validado. Substitua este placeholder pelo produto real quando estiver pronto.',
+    status: 'VALIDATING',
+    category: 'SaaS',
+  },
+  {
+    title: '[Ferramenta placeholder]',
+    description: 'Descrição de uma ferramenta própria em construção. Substitua este placeholder quando o produto estiver definido.',
+    status: 'BUILDING',
+    category: 'Ferramenta',
+  },
+  {
+    title: '[Idea de produto placeholder]',
+    description: 'Descrição de uma ideia em estágio inicial. Substitua este placeholder quando a ideia for validada.',
+    status: 'IDEA',
+    category: 'Produto',
+  },
+];
+
+export const OPPORTUNITIES: Opportunity[] = [
+  {
+    title: 'Projeto',
+    description: 'Você tem um problema ou uma ideia que precisa virar software.',
+    cta: 'Discutir projeto',
+    href: '#contato',
+  },
+  {
+    title: 'Colaboração',
+    description: 'Você está construindo algo e procura alguém para desenvolver junto.',
+    cta: 'Conversar',
+    href: '#contato',
+  },
+  {
+    title: 'Oportunidade',
+    description: 'Você procura um desenvolvedor para fazer parte de um time ou projeto.',
+    cta: 'Entrar em contato',
+    href: '#contato',
+  },
+];
+
+export const PROJECT_STATUS_STYLES: Record<ProjectStatus, string> = {
+  Building: 'text-amber-400/90 border-amber-400/30 bg-amber-400/5',
   MVP: 'text-accent border-accent/30 bg-accent/5',
-  Concluído: 'text-zinc-300 border-ink-600 bg-ink-800',
+  Exploring: 'text-sky-400/90 border-sky-400/30 bg-sky-400/5',
+  Shipped: 'text-zinc-300 border-ink-600 bg-ink-800',
+};
+
+export const LAB_STATUS_STYLES: Record<LabItem['status'], string> = {
+  Idea: 'text-zinc-500 border-ink-600 bg-ink-800',
+  Experiment: 'text-sky-400/90 border-sky-400/30 bg-sky-400/5',
+  Building: 'text-amber-400/90 border-amber-400/30 bg-amber-400/5',
+  Paused: 'text-zinc-500 border-ink-600 bg-ink-800',
+  Shipped: 'text-accent border-accent/30 bg-accent/5',
+};
+
+export const VENTURE_STATUS_STYLES: Record<Venture['status'], string> = {
+  IDEA: 'text-zinc-500 border-ink-600 bg-ink-800',
+  VALIDATING: 'text-sky-400/90 border-sky-400/30 bg-sky-400/5',
+  BUILDING: 'text-amber-400/90 border-amber-400/30 bg-amber-400/5',
+  LIVE: 'text-accent border-accent/30 bg-accent/5',
+};
+
+export const SKILL_LEVEL_STYLES: Record<SkillLevel, string> = {
+  Primary: 'text-zinc-100',
+  'Working with': 'text-zinc-400',
+  Exploring: 'text-zinc-600',
+};
+
+export const LAB_ICONS: Record<string, LucideIcon> = {
+  Arquitetura: Layers,
+  CLI: Terminal,
+  SaaS: Rocket,
+  Infra: Cpu,
+  API: Workflow,
+  Engineering: GitBranch,
 };

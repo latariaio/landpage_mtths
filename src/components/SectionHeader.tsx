@@ -11,10 +11,7 @@ export function SectionHeader({ number, title, className = '' }: SectionHeaderPr
   const { ref, visible } = useReveal<HTMLDivElement>();
 
   return (
-    <div
-      ref={ref}
-      className={`reveal ${visible ? 'is-visible' : ''} ${className}`}
-    >
+    <div ref={ref} className={`reveal ${visible ? 'is-visible' : ''} ${className}`}>
       <div className="mb-5 flex items-center gap-3">
         <span className="font-mono text-xs tracking-[0.25em] text-accent">{number}</span>
         <span className="h-px w-10 bg-ink-600" />

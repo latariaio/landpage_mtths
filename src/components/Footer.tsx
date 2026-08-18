@@ -11,10 +11,10 @@ export function Footer() {
               href="#inicio"
               className="font-mono text-sm font-medium text-zinc-100 transition-colors hover:text-accent"
             >
-              Matheus<span className="text-accent">.dev</span>
+              mtths<span className="text-accent">.com.br</span>
             </a>
             <p className="mt-3 max-w-xs text-sm text-zinc-500">
-              Desenvolvimento de sistemas e software personalizado.
+              Software · Engineering · Building
             </p>
           </div>
 
@@ -47,9 +47,10 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 border-t border-ink-800 pt-6">
-          <p className="font-mono text-xs text-zinc-600">
-            © 2026 Matheus. Todos os direitos reservados.
+        <div className="mt-10 flex flex-col gap-3 border-t border-ink-800 pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="font-mono text-xs text-zinc-600">© 2026 Matheus</p>
+          <p className="font-mono text-xs text-zinc-700">
+            Built with code, curiosity and too much coffee.
           </p>
         </div>
       </div>

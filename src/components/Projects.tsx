@@ -1,5 +1,5 @@
 import { ArrowUpRight } from 'lucide-react';
-import { PROJECTS, STATUS_STYLES, type Project } from '@/data/content';
+import { PROJECTS, PROJECT_STATUS_STYLES, type Project } from '@/data/content';
 import { SectionHeader } from '@/components/SectionHeader';
 import { useReveal } from '@/hooks/useReveal';
 
@@ -7,12 +7,23 @@ export function Projects() {
   return (
     <section id="projetos" className="section-pad border-t border-ink-800">
       <div className="container-page">
-        <SectionHeader number="02 / Projetos" title="Algumas coisas que estou construindo." />
+        <SectionHeader number="02 / Projetos" title="O código fala por mim." />
+
+        <p className="body-text mt-8 max-w-2xl text-pretty">
+          Projetos pessoais, experimentos e sistemas desenvolvidos para colocar ideias em prática.
+        </p>
 
         <div className="mt-16 flex flex-col">
           {PROJECTS.map((project, i) => (
             <ProjectCard key={project.id} project={project} delay={i + 1} />
           ))}
+        </div>
+
+        <div className="mt-12">
+          <a href={PROJECTS[0]?.links[0]?.href ?? '#'} target="_blank" rel="noopener noreferrer" className="btn-text">
+            Ver todos os projetos
+            <ArrowUpRight className="h-4 w-4" />
+          </a>
         </div>
       </div>
     </section>
@@ -25,14 +36,14 @@ function ProjectCard({ project, delay }: { project: Project; delay: number }) {
   return (
     <article
       ref={ref}
-      className={`reveal reveal-delay-${delay} ${visible ? 'is-visible' : ''} group relative border-t border-ink-800 py-10 transition-colors duration-500 last:border-b hover:bg-ink-900/40 sm:py-14`}
+      className={`reveal reveal-delay-${delay} ${visible ? 'is-visible' : ''} group relative border-t border-ink-800 py-10 transition-all duration-500 last:border-b hover:bg-ink-900/40 sm:py-14`}
     >
       <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between lg:gap-16">
         <div className="flex-1">
           <div className="mb-4 flex items-center gap-4">
             <span className="font-mono text-sm text-zinc-600">{project.index}</span>
             <span
-              className={`inline-flex items-center rounded-full border px-3 py-1 font-mono text-[11px] tracking-wide ${STATUS_STYLES[project.status]}`}
+              className={`inline-flex items-center rounded-full border px-3 py-1 font-mono text-[11px] tracking-wide ${PROJECT_STATUS_STYLES[project.status]}`}
             >
               {project.status}
             </span>

@@ -1,29 +1,35 @@
+import { ScrollProgress } from '@/components/ScrollProgress';
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
-import { Positioning } from '@/components/Positioning';
+import { ImpactQuote } from '@/components/ImpactQuote';
+import { WhatIDo } from '@/components/WhatIDo';
 import { Projects } from '@/components/Projects';
-import { Process } from '@/components/Process';
+import { Lab } from '@/components/Lab';
 import { Skills } from '@/components/Skills';
+import { Engineering } from '@/components/Engineering';
 import { About } from '@/components/About';
-import { Services } from '@/components/Services';
-import { CTA } from '@/components/CTA';
-import { ContactSection } from '@/components/ContactSection';
+import { Ventures } from '@/components/Ventures';
+import { Opportunities } from '@/components/Opportunities';
+import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
 
 function App() {
   return (
     <div className="relative min-h-screen bg-ink-950">
+      <ScrollProgress />
       <Navbar />
       <main>
         <Hero />
-        <Positioning />
+        <ImpactQuote />
+        <WhatIDo />
         <Projects />
-        <Process />
+        <Lab />
         <Skills />
+        <Engineering />
         <About />
-        <Services />
-        <CTA />
-        <ContactSection />
+        <Ventures />
+        <Opportunities />
+        <Contact />
       </main>
       <Footer />
     </div>
