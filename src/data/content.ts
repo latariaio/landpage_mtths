@@ -102,7 +102,7 @@ export const PROJECTS: Project[] = [
     problem: 'Automatizar rotinas manuais de manutenção e backup em ambientes Linux.',
     technologies: ['Go', 'Linux', 'CLI', 'Docker'],
     status: 'Building',
-    links: [{ label: 'GitHub', href: 'https://github.com/' }],
+    links: [{ label: 'GitHub', href: 'https://github.com/latariaio/workstation-agent' }],
   },
   {
     id: 'ordem-servico',
@@ -113,7 +113,7 @@ export const PROJECTS: Project[] = [
     problem: 'Organizar e centralizar o fluxo de ordens de serviço de um pequeno negócio.',
     technologies: ['Go', 'REST API', 'PostgreSQL'],
     status: 'MVP',
-    links: [{ label: 'GitHub', href: 'https://github.com/' }],
+    links: [{ label: 'GitHub', href: 'https://github.com/latariaio/api-order-service' }],
   },
   {
     id: 'api-gateway',
@@ -124,7 +124,7 @@ export const PROJECTS: Project[] = [
     problem: 'Centralizar autenticação e roteamento entre múltiplos serviços.',
     technologies: ['Go', 'Docker', 'REST'],
     status: 'Exploring',
-    links: [{ label: 'GitHub', href: 'https://github.com/' }],
+    links: [{ label: 'GitHub', href: 'https://github.com/latariaio' }],
   },
 ];
 
@@ -250,21 +250,21 @@ export const FOCUS_LIST = [
 ];
 
 export const VENTURES: Venture[] = [
+  // {
+  //   title: '[Produto SaaS placeholder]',
+  //   description: 'Descrição do produto que está sendo validado. Substitua este placeholder pelo produto real quando estiver pronto.',
+  //   status: 'VALIDATING',
+  //   category: 'SaaS',
+  // },
   {
-    title: '[Produto SaaS placeholder]',
-    description: 'Descrição do produto que está sendo validado. Substitua este placeholder pelo produto real quando estiver pronto.',
-    status: 'VALIDATING',
-    category: 'SaaS',
-  },
-  {
-    title: '[Ferramenta placeholder]',
-    description: 'Descrição de uma ferramenta própria em construção. Substitua este placeholder quando o produto estiver definido.',
+    title: 'Ferramenta de DNS e monitoramento de serviços',
+    description: 'Ferramenta para monitoramento de serviços e gerenciamento de DNS, com foco em pequenas empresas.',
     status: 'BUILDING',
     category: 'Ferramenta',
   },
   {
-    title: '[Idea de produto placeholder]',
-    description: 'Descrição de uma ideia em estágio inicial. Substitua este placeholder quando a ideia for validada.',
+    title: 'Family Hub',
+    description: 'Centralizador de informações medicas familiares.',
     status: 'IDEA',
     category: 'Produto',
   },

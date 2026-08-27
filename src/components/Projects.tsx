@@ -1,5 +1,5 @@
 import { ArrowUpRight } from 'lucide-react';
-import { PROJECTS, PROJECT_STATUS_STYLES, type Project } from '@/data/content';
+import { PROJECTS, PROJECT_STATUS_STYLES, SOCIAL_LINKS, type Project } from '@/data/content';
 import { SectionHeader } from '@/components/SectionHeader';
 import { useReveal } from '@/hooks/useReveal';
 
@@ -20,7 +20,7 @@ export function Projects() {
         </div>
 
         <div className="mt-12">
-          <a href={PROJECTS[0]?.links[0]?.href ?? '#'} target="_blank" rel="noopener noreferrer" className="btn-text">
+          <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" className="btn-text">
             Ver todos os projetos
             <ArrowUpRight className="h-4 w-4" />
           </a>
