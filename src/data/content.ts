@@ -65,11 +65,11 @@ export const NAV_LINKS = [
 export const SOCIAL_LINKS = {
   github: 'https://github.com/latariaio',
   linkedin: 'https://linkedin.com/in/mtths-monteiro',
-  email: 'mailto:matheus.stack.20@gmail.com',
+  email: 'mailto:contato@mtths.com.br',
 } as const;
 
 export const CONTACT_INFO = {
-  email: 'matheus.stack.20@gmail.com',
+  email: 'contato@mtths.com.br',
   github: 'github.com/latariaio',
   linkedin: 'linkedin.com/in/mtths-monteiro',
 } as const;
