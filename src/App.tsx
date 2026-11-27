@@ -1,38 +1,25 @@
-import { ScrollProgress } from '@/components/ScrollProgress';
-import { Navbar } from '@/components/Navbar';
+import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
-import { ImpactQuote } from '@/components/ImpactQuote';
-import { WhatIDo } from '@/components/WhatIDo';
-import { Projects } from '@/components/Projects';
-import { Lab } from '@/components/Lab';
-import { Skills } from '@/components/Skills';
-import { Engineering } from '@/components/Engineering';
-import { About } from '@/components/About';
-import { Ventures } from '@/components/Ventures';
-import { Opportunities } from '@/components/Opportunities';
+import { FeaturedProjects } from '@/components/FeaturedProjects';
+import { Stack } from '@/components/Stack';
+import { Experience } from '@/components/Experience';
 import { Contact } from '@/components/Contact';
-import { Footer } from '@/components/Footer';
 
 function App() {
   return (
-    <div className="relative min-h-screen bg-ink-950">
-      <ScrollProgress />
-      <Navbar />
-      <main>
+    <>
+      <a className="skip-link" href="#conteudo">
+        Pular para o conteúdo
+      </a>
+      <Header />
+      <main id="conteudo">
         <Hero />
-        <ImpactQuote />
-        <WhatIDo />
-        <Projects />
-        <Lab />
-        <Skills />
-        <Engineering />
-        <About />
-        <Ventures />
-        <Opportunities />
-        <Contact />
+        <FeaturedProjects />
+        <Stack />
+        <Experience />
       </main>
-      <Footer />
-    </div>
+      <Contact />
+    </>
   );
 }
 
