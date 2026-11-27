@@ -51,6 +51,26 @@ export const PROJECTS: Project[] = [
     },
   },
   {
+    id: 'api-ecc',
+    name: 'API do ECC',
+    kind: 'API REST',
+    description:
+      'Substitui as fichas de papel do Encontro de Casais com Cristo: cadastro dos casais, filhos, padrinhos, inscrições e pagamentos por encontro.',
+    highlights: [
+      'Busca sem acento e tolerante a erros de digitação no nome',
+      'Importação das fichas antigas por planilha CSV, com simulação antes de gravar',
+      'PDF da ficha do casal, crachás e relatórios em CSV para cozinha e tesouraria',
+      'Login com JWT, perfis de acesso e histórico de quem alterou o quê',
+    ],
+    technologies: ['Node.js', 'Express', 'PostgreSQL', 'Prisma', 'Zod', 'JWT', 'Docker'],
+    links: [],
+    video: {
+      src: '/media/api-ecc.mp4',
+      poster: '/media/api-ecc-poster.jpg',
+      label: 'Vídeo narrado de 2 minutos e 52 segundos explicando a API do ECC',
+    },
+  },
+  {
     id: 'cobranca-ia',
     name: 'Plataforma de Cobrança com IA',
     kind: 'Sistema em produção',
@@ -114,7 +134,7 @@ export const STACK: StackGroup[] = [
   },
   {
     title: 'Back-end',
-    items: ['Node.js', 'Express', 'Prisma', 'Swagger/OpenAPI', 'Go', 'Gin', 'Laravel', 'PHP'],
+    items: ['Node.js', 'Express', 'Prisma', 'Zod', 'JWT', 'Swagger/OpenAPI', 'Go', 'Gin', 'Laravel', 'PHP'],
     icons: ['nodejs', 'go', 'laravel'],
   },
   {
